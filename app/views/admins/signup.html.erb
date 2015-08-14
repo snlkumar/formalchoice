@@ -1,0 +1,23 @@
+<%= form_for @admin do |f|%>
+	<%= f.fields_for :user do |u|%>
+	<div class="field">
+	    <%= u.label :email %><br />
+	    <%= u.email_field :email, autofocus: true %>
+	</div>
+	<div class="field">
+	    <%= u.label :password %>
+	    <% if @minimum_password_length %>
+	    <em>(<%= @minimum_password_length %> characters minimum)</em>
+	    <% end %><br />
+	    <%= u.password_field :password, autocomplete: "off" %>
+  	</div>
+
+  	<div class="field">
+	    <%= u.label :password_confirmation %><br />
+	    <%= u.password_field :password_confirmation, autocomplete: "off" %>
+  	</div> 
+	<%end%>
+	<div class="actions">
+    	<%= f.submit "Sign up" %>
+    </div>
+<% end %>

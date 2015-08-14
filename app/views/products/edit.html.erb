@@ -1,0 +1,67 @@
+
+<article class="module width_full">
+	<% @product.errors.full_messages.each do |e|%>
+		<%=e%>
+	<% end unless @product.errors.blank?%>
+	<div class="breadcrumbs_container">
+		<article class="breadcrumbs"><%= link_to "Product Listing", products_sellers_path(current_user.seller)%>
+			<div class="breadcrumb_divider"></div>
+			 <a class="current">New</a>
+		</article>
+	</div>
+	<!-- <header> Product.group_by_day(:created_at, format: "%d %b %Y").count</header> -->
+	<%= form_for([current_user.seller, @product], :html => { :multipart => true }) do |f|%>		
+		<div class="module_content post_message form_submit">
+			<div class="left-col">		
+				<label>Name</label>
+				<%=f.text_field :name%>
+			</div>
+			<div class="right-col">				
+				<label>Code</label>
+				<%=f.text_field :code%>
+			</div>
+			<div class="left-col">		
+				<label>Color</label>
+				<%=f.select :color_id, Color.all.map {|x| [x.name, x.id]}%>
+			</div>
+				<%= f.hidden_field :seller_id%>
+			<div class="right-col">				
+				<label>Brand</label>
+				<%=f.select :brand_id, Brand.all.map {|x| [x.name, x.id]}%>
+			</div>
+			<div class="left-col">		
+				<label>Price</label>
+				<%=f.text_field :back_price %>
+			</div>
+			<div class="right-col">				
+				<label>Quantity</label>
+				<%=f.text_field :quantity %>
+			</div>
+			<div class="left-col">				
+				<label>Is Sale</label>
+				<%=f.select :is_sale, [['Yes',true],['No',false]]%>				
+			</div>			
+			<div class="right-col">				
+				<label>Is Active</label>
+				<%=f.select :isactive, [['Yes',true],['No',false]]%>				
+			</div>
+			<div class="left-col">				
+				<label>Description</label>
+				<%=f.text_field :description %>
+			</div>
+			
+				<div class="right-col">				
+					<label>Image</label>
+					<%= link_to "Image", seller_product_path(current_user.seller, 
+					@product)%>		
+				</div>
+			
+		</div>
+		
+		<div class="submit_link">
+			<%=f.submit "Update", class:  "submit_btn"%>
+		</div>
+		
+    <% end %>
+	
+</article>

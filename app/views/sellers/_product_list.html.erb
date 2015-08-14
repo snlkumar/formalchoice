@@ -1,0 +1,33 @@
+<%= will_paginate @products %>
+<header>	
+	<ul class="tabs">		
+		<li><a href="<%=new_seller_product_path(current_user.seller)%>">Add Product</a></li>
+	</ul>
+</header>
+
+<table class="tablesorter" cellspacing="0"> 
+	<thead> 
+		<tr> 
+			<th></th> 
+			<th>Name</th> 
+			<th>Code</th>    				
+			<th>Active</th>
+			<th>Action</th>
+		</tr> 
+	</thead> 
+	<tbody>
+		<%@products.each do |p|%>
+		<tr> 
+			<td><input type="checkbox"></td> 
+			<td><%= p.name %></td> 
+			<td><%= p.code %></td>    				
+			<td><%= image_tag("right_circle.png") if p.isactive%>
+				<%= image_tag("wrong.png") unless p.isactive%>
+			</td>
+			<td>
+				<%=link_to image_tag("icn_edit.png"), edit_seller_product_path(current_user.seller, p.id)%>
+				<%=link_to image_tag("icn_trash.png"), edit_seller_product_path(current_user.seller, p.id),method: :delete%>
+		</tr>
+		<%end unless @products.blank?%>		
+	</tbody> 
+</table>

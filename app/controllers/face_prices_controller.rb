@@ -1,0 +1,2 @@
+class FacePricesController < ApplicationController
+end

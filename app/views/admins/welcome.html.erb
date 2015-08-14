@@ -1,0 +1,108 @@
+<article class="module width_full dashmodule">
+	<!-- <header><h3>Stats</h3></header> -->
+	<div class="row">
+	<div class="module_content welcome_main">	
+		<article class="stats_overview blue">
+			<div class="overview_today">
+				<p class="overview_day">Today</p>
+				<p class="overview_count"><%= link_to "Brands", admin_brands_path(current_user.admin)%></p>				
+				<p class="overview_type"><%=brands.count%></p>				
+			</div>
+		</article>
+		<div class="clear"></div>
+	</div>
+	<div class="module_content welcome_main">
+		<article class="stats_overview green">
+			<div class="overview_today">
+				<p class="overview_day">Total</p>
+				<p class="overview_count"><%= link_to "Colors", admin_colors_path(current_user.admin)%></p>
+				<p class="overview_type"><%=colors.count%></p>
+			</div>
+		</article>
+		<div class="clear"></div>
+	</div>
+	<div class="module_content welcome_main">	
+		<article class="stats_overview yellow">
+			<div class="overview_today">
+				<p class="overview_day">Today</p>
+				<p class="overview_count"><%= link_to "Discounts", admin_discounts_path(current_user.admin)%></p>
+				<p class="overview_type"><%= discounts.count%></p>
+			</div>			
+		</article>
+		<div class="clear"></div>
+	</div>
+	<div class="module_content welcome_main">	
+		<article class="stats_overview yellow">
+			<div class="overview_today">
+				<p class="overview_day">Today</p>
+				<p class="overview_count"><%= link_to "Sellers", "#"%></p>
+				<p class="overview_type">15</p>
+			</div>			
+		</article>
+		<div class="clear"></div>
+	</div>
+	<div class="module_content welcome_main">	
+		<article class="stats_overview red">
+			<div class="overview_today">
+				<p class="overview_day">Today</p>
+				<p class="overview_count"><%= link_to "Tailors", "#"%></p>
+				<p class="overview_type">10</p>
+			</div>			
+		</article>
+		<div class="clear"></div>
+	</div>
+	<div class="module_content welcome_main">	
+		<article class="stats_overview blue">
+			<div class="overview_today">
+				<p class="overview_day">Today</p>
+				<p class="overview_count"><%= link_to "Buyers", "#"%></p>
+				<p class="overview_type">1000</p>
+			</div>			
+		</article>
+		<div class="clear"></div>
+	</div>
+	<div class="module_content welcome_main">	
+		<article class="stats_overview green">
+			<div class="overview_today">
+				<p class="overview_day">Today</p>
+				<p class="overview_count"><%= link_to "products", "#"%></p>
+				<p class="overview_type">500</p>
+			</div>			
+		</article>
+		<div class="clear"></div>
+	</div>
+	<div class="module_content welcome_main">	
+		<article class="stats_overview yellow">
+			<div class="overview_today">
+				<p class="overview_day">Today</p>
+				<p class="overview_count"><%= link_to "Sold products", "#"%></p>
+				<p class="overview_type">5</p>
+			</div>			
+		</article>
+		<div class="clear"></div>
+	</div>
+	<div class="module_content welcome_main">	
+		<article class="stats_overview red">
+			<div class="overview_today">
+				<p class="overview_day">Today</p>
+				<p class="overview_count"><%= link_to "Sales", "#"%></p>
+				<p class="overview_type">$2500</p>
+			</div>			
+		</article>
+		<div class="clear"></div>
+	</div>
+
+	<div class="module_content welcome_main">	
+		<article class="stats_overview blue">
+			<div class="overview_today">
+				<p class="overview_day">Today</p>
+				<p class="overview_count"><%= link_to "orders", "#"%></p>
+				<p class="overview_type">50</p>
+			</div>			
+		</article>
+		<div class="clear"></div>
+	</div>
+	</div>
+</article><!-- end of stats article -->
+
+<div class="spacer"></div>

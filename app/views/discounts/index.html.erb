@@ -1,0 +1,46 @@
+<article class="module width_full">
+	<div class="breadcrumbs_container">
+		<article class="breadcrumbs"><%= link_to "Dashboard", welcome_admins_path%>
+			<div class="breadcrumb_divider"></div>
+			 <a class="current">Discount Listing</a>
+		</article>
+	</div>
+	<header>
+		<ul class="tabs">
+   			<li><a href="<%=new_admin_discount_path(current_user.admin)%>">Add Discount</a></li>    		
+		</ul>
+		</header>
+	<table class="tablesorter" cellspacing="0"> 
+			<thead> 
+				<tr> 
+   					<th></th> 
+    				<th>Name</th> 
+    				<th>Discount Type</th> 
+    				<th>Value</th> 
+    				<th>Valid From</th>
+    				<th>Valid Upto</th>
+    				<th>Active</th>
+    				<th>Action</th>
+				</tr> 
+			</thead> 
+			<tbody>
+				<%@discounts.each do |discount|%>
+				<tr> 
+   					<td><input type="checkbox"></td> 
+    				<td><%= discount.name %></td> 
+    				<td><%= discount.discount_type %></td> 
+    				<td><%= discount.value %></td> 
+    				<td><%= discount.valid_from %></td>
+    				<td><%= discount.valid_upto %></td>    				
+    				<td><%= image_tag("right_circle.png") if discount.is_active%>
+    					<%= image_tag("wrong.png") unless discount.is_active%>
+    				</td>
+    				<td>
+    					<%=link_to image_tag("icn_edit.png"), edit_admin_discount_path(current_user.admin, discount.id)%>
+    					<%=link_to image_tag("icn_trash.png"), admin_discounts_path(current_user.admin, discount.id),method: :delete%>
+				</tr>
+				<%end unless @discounts.blank?%>
+				
+			</tbody> 
+			</table>
+</artical>

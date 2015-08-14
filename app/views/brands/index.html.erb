@@ -1,0 +1,50 @@
+<article class="module width_full">
+	<div class="breadcrumbs_container">
+		<article class="breadcrumbs"><%= link_to "Dashboard", welcome_admins_path%>
+			<div class="breadcrumb_divider"></div>
+			 <a class="current">Brand Listing</a>
+		</article>
+	</div>
+	<header>
+		<ul class="tabs">
+   			<li><a href="<%=new_admin_brand_path(current_user.admin)%>">Add Brand</a></li>    		
+		</ul>
+		</header>
+	<table class="tablesorter" cellspacing="0"> 
+			<thead> 
+				<tr> 
+   					<th></th> 
+    				<th>Name</th> 
+    				<th>Code</th> 
+    				<th>Dealin</th> 
+    				<th>Description</th>
+    				<th>Address</th>
+    				<th>Contact</th> 
+    				<th>Founder</th> 
+    				<th>Active</th>
+    				<th>Action</th>
+				</tr> 
+			</thead> 
+			<tbody>
+				<%@brands.each do |brand|%>
+				<tr> 
+   					<td><input type="checkbox"></td> 
+    				<td><%= brand.name %></td> 
+    				<td><%= brand.code %></td> 
+    				<td><%= brand.dealin %></td> 
+    				<td><%= brand.description %></td>
+    				<td><%= brand.address %></td>
+    				<td><%= brand.contact %></td>
+    				<td><%= brand.founder %></td>
+    				<td><%= image_tag("right_circle.png") if brand.isactive%>
+    					<%= image_tag("wrong.png") unless brand.isactive%>
+    				</td>
+    				<td>
+    					<%=link_to image_tag("icn_edit.png"), edit_admin_brand_path(current_user.admin, brand.id)%>
+    					<%=link_to image_tag("icn_trash.png"), admin_brands_path(current_user.admin, brand.id),method: :delete%>
+				</tr>
+				<%end unless @brands.blank?%>
+				
+			</tbody> 
+			</table>
+</artical>

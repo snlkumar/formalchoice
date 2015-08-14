@@ -1,0 +1,32 @@
+
+
+
+
+
+<script type="text/javascript" charset="utf-8">
+
+  $(function () {
+   
+    var seriesData = <%= raw products_count %>
+  new Highcharts.Chart({
+    chart: { renderTo: 'orders_chart' },
+    title: { text: 'New Products by Day' },
+    xAxis: {
+            tickInterval: 1,
+            labels: {
+                enabled: true,
+                formatter: function() { return seriesData[this.value][0];},
+            }
+        },
+    yAxis: {
+      title: { text: 'Product' }
+    },
+    series: [{
+            data: seriesData     
+        }]
+  });
+});
+</script>
+
+<div id="orders_chart" style="width: 900px; height: 300px;"></div>
+<label><b>Total: 50</b></label> &nbsp <label><b>Searched Product: <%=@products.count%></b></label>

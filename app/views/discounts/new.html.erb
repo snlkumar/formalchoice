@@ -1,0 +1,50 @@
+
+<article class="module width_full">
+	<% @discount.errors.full_messages.each do |e|%>
+		<%=e%>
+	<% end unless @discount.errors.blank?%>
+	<div class="breadcrumbs_container">
+		<article class="breadcrumbs"><%= link_to "Brand Listing", admin_discounts_path(current_user.admin)%>
+			<div class="breadcrumb_divider"></div>
+			 <a class="current">New</a>
+		</article>
+	</div>
+	<header></header>
+	<%= form_for [current_user.admin,@discount] do |f|%>		
+		<div class="module_content post_message form_submit">	
+				<div class="left-col">			
+					<label>Name</label>
+					<%=f.text_field :name%>	
+				</div>	
+				<div class="right-col">				
+					<label>Discount Type</label>
+					<%=f.text_field :discount_type%>
+				</div>
+				
+				<div class="left-col">			
+					<label>Value</label>
+					<%=f.text_field :value%>
+				</div>
+				<div class="right-col">
+					<label>Valid From</label>
+					<%=f.text_field :valid_from, class: "date"%>
+				</div>
+				<div class="left-col">		
+					<label>Valid Upto</label>
+					<%=f.text_field :valid_upto, class: "date"%>
+				</div>				
+				<div class="right-col">
+					<label>Is Active</label>
+					<%=f.select :is_active, [['Yes',true],['No',false]]%>			
+				</div>
+		</div>
+		
+			<div class="submit_link">
+				<%=f.submit "Create", class:  "submit_btn"%>
+				<!-- <input type="submit" value="Create" class="alt_btn">
+				<input type="submit" value="Reset"> -->
+			</div>
+		
+    <% end %>
+	
+</article>

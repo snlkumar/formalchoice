@@ -1,0 +1,34 @@
+
+
+ <script>
+ $(function() {
+    $( "#from" ).datepicker({
+      defaultDate: "+1w",
+      changeMonth: true,
+      maxDate: new Date(),
+      numberOfMonths: 1,
+      onClose: function( selectedDate ) {
+        $( "#to" ).datepicker( "option", "minDate", selectedDate );
+      }
+    });
+    $( "#to" ).datepicker({
+      defaultDate: "+1w",
+      changeMonth: true,
+      numberOfMonths: 1,
+      onClose: function( selectedDate ) {
+        $( "#from" ).datepicker( "option", "maxDate", selectedDate );
+      }
+    });
+  });
+ </script>
+<article class="module width_full">	
+	<div class="tabs">
+		<input type="text" placeholder="From" id="from">&nbsp&nbsp<input type="text" placeholder="To" id="to"> &nbsp <input type="button" value="Search" id="seller_products">
+	</div>
+	<div id="graph">
+		<%= render :partial => 'product_graph'%>	
+	</div>
+	<div id="plist">
+		<%= render :partial => 'product_list'%>
+	</div>
+</article>

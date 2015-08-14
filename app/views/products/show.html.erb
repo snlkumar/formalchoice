@@ -1,0 +1,55 @@
+<article class="module width_full">
+	<div class="breadcrumbs_container">
+		<article class="breadcrumbs"><%= link_to "Edit Product", edit_seller_product_path(current_user.seller, @product.id)%>
+			<div class="breadcrumb_divider"></div>
+			 <a class="current">Show</a>
+		</article>
+	</div>
+	<header> </header
+	<p id="notice"><%= notice %></p>
+	<div class="module_content post_message form_submit">
+			<div class="left-col">		
+				<label>Name</label>
+				<label><%=@product.name %></label>				
+			</div>
+			<div class="right-col">				
+				<label>Code</label>	
+				<label><%=@product.code %></label>			
+			</div>
+			<div class="left-col">		
+				<label>Color</label>
+				<label><%=@product.color.name %></label>			
+			</div>
+				
+			<div class="right-col">				
+				<label>Brand</label>
+				<label><%=@product.brand.name %></label>				
+			</div>
+			<div class="left-col">		
+				<label>Price</label>
+				<label><%=@product.back_price %></label>			
+			</div>
+			<div class="right-col">				
+				<label>Quantity</label>
+				<label><%=@product.quantity %></label>		
+			</div>
+			<div class="left-col">				
+				<label>Is Sale</label>
+				<label><%=@product.is_sale %></label>		
+			</div>			
+			<div class="right-col">				
+				<label>Is Active</label>
+				<label><%= @product.isactive %></label>			
+			</div>
+			<div class="left-col">				
+				<label>Description</label>
+				<label><%= @product.description %></label>
+			</div>
+		</div>
+	
+
+	<% @product.images.each do |p| %>
+
+	  <%= link_to image_tag(p.avatar_url(:thumb), width: 100), edit_image_path(p)%>	  
+	<% end %>
+</article>

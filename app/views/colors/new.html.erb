@@ -1,0 +1,34 @@
+
+<article class="module width_full">
+	<% @color.errors.full_messages.each do |e|%>
+		<%=e%>
+	<% end unless @color.errors.blank?%>
+	<div class="breadcrumbs_container">
+		<article class="breadcrumbs"><%= link_to "Color Listing", admin_colors_path(current_user.admin)%>
+			<div class="breadcrumb_divider"></div>
+			 <a class="current">New</a>
+		</article>
+	</div>
+	<header></header>
+	<%= form_for [current_user.admin,@color] do |f|%>		
+		<div class="module_content post_message">	
+				<div>			
+					<label>Name</label>
+					<%=f.text_field :name%>					
+					<label>Code</label>
+					<%=f.text_field :code%>
+				</div>
+				<div class="clear"></div>				
+				<div>					
+					<label>Is Active</label>
+					<%=f.select :isactive, [[true,true],[false,false]]%>				
+				</div>
+		</div>
+		<footer>
+			<div class="submit_link">
+				<%=f.submit "Create"%>
+			</div>
+		</footer>
+    <% end %>
+	
+</article>

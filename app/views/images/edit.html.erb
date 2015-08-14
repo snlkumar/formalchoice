@@ -1,0 +1,16 @@
+
+<article class="module width_full">
+	<div class="breadcrumbs_container">
+		<article class="breadcrumbs"><%= link_to "Image Listing", seller_product_path(current_user.seller, 
+					@image.product)%>
+			<div class="breadcrumb_divider"></div>
+			 <a class="current">Edit</a>
+		</article>
+	</div>
+	<header> </header>
+	<%= image_tag @image.avatar %>
+	<%= form_for @image do |f| %>
+	<%= f.file_field :avatar%>
+	<%= f.submit "Update"%>
+	<% end %>
+</article>

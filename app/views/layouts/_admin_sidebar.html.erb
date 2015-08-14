@@ -1,0 +1,29 @@
+<aside id="sidebar" class="column">
+	<form class="quick_search">
+		<input type="text" value="Quick Search" onfocus="if(!this._haschanged){this.value=''};this._haschanged=true;">
+	</form>
+	<hr/>
+	<h3>Brands</h3>
+	<ul class="toggle">
+		<% brands.each do |b|%>
+		<li class="brand-icon"><%=link_to b.name , "#"%></li>		
+		<% end unless brands.blank?%>
+	</ul>
+	<h3>Colors</h3>
+	<ul class="toggle">
+		<% colors.each do |c|%>
+		<li class="brand-icon"><%=link_to c.name , "#"%></li>		
+		<% end unless colors.blank?%>
+	</ul>
+	<h3>Orders</h3>
+	<ul class="toggle">
+		<li class="icn_settings"><a href="#">Options</a></li>
+		<li class="icn_security"><a href="#">Security</a></li>
+		<li class="icn_jump_back"><a href="#">Logout</a></li>
+	</ul>
+	
+	<footer>
+		<hr />
+		<p><strong>Copyright &copy; 2015 FormalChoice.me</strong></p>		
+	</footer>
+</aside><!-- end of sidebar -->
