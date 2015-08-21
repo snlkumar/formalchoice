@@ -4,17 +4,19 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
  
 
-  def after_sign_in_path_for(resource)  	
-  	if resource.seller
-  		redirect_to welcome_sellers_path
-  	elsif resource.tailor
-  		redirect_to welcome_tailors_path
-  	elsif resource.admin
-      redirect_to welcome_admins_path
-    else
-  		redirect_to root_path
-  	end  			
-  end
+  # def after_sign_in_path_for(resource)  	
+  #   # debugger
+  # 	if resource.seller
+  # 		redirect_to welcome_sellers_path
+  # 	elsif resource.tailor
+  # 		redirect_to welcome_tailors_path
+  # 	elsif resource.admin
+  #     redirect_to welcome_admins_path
+  #   else
+  #     return if resource.sign_in_count==1
+  # 		redirect_to root_path
+  # 	end  			
+  # end
 
   private
   def admin_required

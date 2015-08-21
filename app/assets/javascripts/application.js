@@ -15,4 +15,10 @@
 //= require turbolinks
 //= require highcharts
 //= require highcharts/highcharts-more
-//= require_tree .
+//= require frontend/slider/jquery.flexslider-min
+//= require frontend/slider/jquery.cslider
+//= require frontend/slider/modernizr
+//= require frontend/bootstrap.min
+//= require frontend/app
+//= require frontend/index
+//= require frontend/jquery-migrate-1.2.1.min
