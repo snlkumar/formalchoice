@@ -22,3 +22,15 @@
 //= require frontend/app
 //= require frontend/index
 //= require frontend/jquery-migrate-1.2.1.min
+
+$(document).ready(function() {
+
+  var clickOnPopupLink = function(){
+    $('body').on('click', '.static-popup-link', function(){
+      $('.bs-example-modal-sm').modal('show');
+    });
+  }
+
+  clickOnPopupLink();
+
+});

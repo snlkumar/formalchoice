@@ -55,7 +55,7 @@
                         <li><%= link_to('Logout', destroy_user_session_path, :method => :delete) %></li>
                     <% else %>
                         <li><%= link_to "Login", "#login", "data-toggle" => "modal", "data-target" => ".bs-example-modal-sm" %></li>
-                        <li><% link_to('Login', sign_in_path)  %></li>
+                        <li><%= link_to 'New Login', new_login_path, remote: true, class: 'static-popup-link' %></li>
                     <% end %>  
                       
                 </ul>
@@ -536,7 +536,7 @@
     <!--=== End Header ===-->
     
     
-                        <% render "home/sign_up_modal"%>
+                        <%= render "home/sign_up_modal"%>
     <!--=== Slider ===-->
     <%if flash[:notice]%>
 		<%=flash[:notice]%>

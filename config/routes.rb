@@ -15,6 +15,7 @@ Rails.application.routes.draw do
 
   # You can have the root of your site routed with "root"
   root 'home#index'
+  get "new_login", to: "home#login"
   resources :admins do
     collection do
       get :signup, :welcome
