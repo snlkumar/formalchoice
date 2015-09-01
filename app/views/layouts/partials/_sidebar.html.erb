@@ -1,0 +1,65 @@
+<ul class="list-group sidebar-nav-v1" id="sidebar-nav">
+                <!-- Typography -->
+                <li class="list-group-item active">    
+                    <a data-toggle="collapse" data-parent="#sidebar-nav" href="">Pant</a>
+                   
+                    <%= form_tag filters_path, method: :get do |f|%>               
+                    
+                    <ul id="collapse-typography" class="collapse in">
+                        <li class="dropdown-submenu">
+                            <a href="javascript:void(0);">Brands</a>
+                            <ul class="dropdown-menu">
+                                <%brands.each do |b|%>
+                                	    <label>
+                                	    	<%selected = (params[:brand_ids] && params[:brand_ids].include?(b.id.to_s)) ? true : false%>
+                                            <%= check_box_tag "brand_ids[]", b.id, selected%> <%=b.name%> 
+                                        </label>
+                                    </li>                                                               
+                                <% end %>
+                            </ul>                                
+                        </li>
+
+                        <li class="dropdown-submenu">
+                            <a href="javascript:void(0);">Fabric Type</a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <label> <input type="checkbox" />  pepperoni  <span class="badge badge-u rounded-2x"> New</span></label>
+                                </li>
+                                <li><a href="page_about.html">Nyloan</a></li>
+                                <li>                                    
+                                    <a href="page_about_me.html">About Me</a>
+                                </li>
+                            </ul>                                
+                        </li>
+                    </ul>
+                    <li><button type="submit" class="btn btn-block rounded btn-bitbucket-inversed">Filter</button></li>
+                    <%end%>
+                </li>
+                <li class="list-group-item active">                   
+                    <a data-toggle="collapse" data-parent="#sidebar-nav" href="">Shirts</a>
+                    <ul id="collapse-typography" class="collapse in">
+                        <li class="dropdown-submenu">
+                            <a href="javascript:void(0);">Brands</a>
+                            <ul class="dropdown-menu">
+                                <li><a href="page_about1.html">About Us</a></li>
+                                <li><a href="page_about.html">About Basic</a></li>
+                                <li><a href="page_about_me.html">About Me</a></li>
+                                <li><a href="page_about_our_team.html">About Our Team</a></li>
+                            </ul>                                
+                        </li>
+
+                        <li class="dropdown-submenu">
+                            <a href="javascript:void(0);">Fabric Type</a>
+                            <ul class="dropdown-menu">
+                                <li><a href="page_about1.html">Cotton</a></li>
+                                <li><a href="page_about.html">Nyloan</a></li>
+                                <li>
+                                    
+                                    <span class="badge badge-u">New</span>
+                                    <a href="page_about_me.html">About Me</a>
+                                </li>
+                            </ul>                                
+                        </li>
+                    </ul>
+                </li>
+            </ul>

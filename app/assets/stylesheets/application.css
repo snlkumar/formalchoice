@@ -14,6 +14,8 @@
  *= require frontend/bootstrap.min.css
  *= require frontend/line-icons.css
  *= require frontend/font-awesome.min.css 
+ *= require frontend/custom.css
+ *= require frontend/plugins/custom-sky-forms.css
  *= require frontend/parallax-slider.css
  *= require frontend/app.css
  *= require themes/default.css

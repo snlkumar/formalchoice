@@ -1,0 +1,31 @@
+<div class="container">
+                <!-- Topbar Navigation -->
+    <ul class="loginbar pull-right">
+        <li>
+            <i class="fa fa-globe"></i>
+            <a>Languages</a>
+            <ul class="lenguages">
+                <li class="active">
+                    <a href="#">English <i class="fa fa-check"></i></a> 
+                </li>
+                <li><a href="#">Spanish</a></li>
+                <li><a href="#">Russian</a></li>
+                <li><a href="#">German</a></li>
+            </ul>
+        </li>
+        <li class="topbar-devider"></li>   
+        <li><a href="page_faq.html">Help</a></li>  
+        <li class="topbar-devider"></li> 
+        	 <% if user_signed_in? -%>
+                <li><%= link_to image_tag(avatar_url(current_user), :size => "25x25"), fb_edit_user_path, :remote => true %></li>
+                &nbsp;
+                <%= link_to current_user.username, fb_edit_user_path, :remote => true %>&nbsp;|&nbsp; 
+                <li><%= link_to t(:logout, scope: :'myinfo.menu'), destroy_user_session_path, :method=>'delete' %> </li>
+              <% else -%>
+                
+                <li><%= link_to t(:login, scope: :'myinfo.menu'), fb_login_path, :remote => true, class: 'static-popup-link' %></li>&nbsp;|&nbsp;
+                <li><%= link_to t(:sign_up, scope: :'myinfo.menu'), fb_create_user_path, :remote => true, class: 'static-popup-link' %></li>
+              <% end -%>
+    </ul>
+    <!-- End Topbar Navigation -->
+</div>

@@ -17,8 +17,28 @@
 
 /*Boxed Layout
 ------------------------------------*/
+/* custom css*/
+.breadcrumbs li a {
+	display: inline-block;
+	/*float: left;*/
+	height: 24px;
+	line-height: 23px;
+}
+.col-md-3 {
+	padding-left: inherit;
+}
+
+.nav-tabs li a {
+	color: darkgray !important;
+}
+/*end*/
 .wrapper {
   background: #fff;
+}
+
+.alert-error ul li {
+	color: red;
+    list-style: none outside none;
 }
 
 .boxed-layout {
@@ -1187,9 +1207,10 @@
 /*Default Breadcrumbs*/
 .breadcrumbs {
 	overflow: hidden;
-	padding: 10px 0 6px;
+	/*padding: 10px 0 6px;*/
 	border-bottom: solid 1px #eee;
-	background: url(../assets/frontend/breadcrumbs.png) repeat;
+	/*background-color: rgb(39, 49, 63);*/
+	/*background: url(../assets/frontend/breadcrumbs.png) repeat;*/
 }
 .breadcrumbs h1 {
 	color: #666;

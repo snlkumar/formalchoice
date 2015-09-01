@@ -1,0 +1,46 @@
+<div class="breadcrumbs">
+    <div class="container">
+        <h1 class="pull-left">Filters</h1>       
+    </div>
+</div>
+<div class="funny-boxes funny-boxes-top-sea">
+  <div class="row">
+      <div class="col-md-4 funny-boxes-img">
+          <img alt="" id="zoom_01" src="http://knitfab.com/wp-content/uploads/2015/02/Oxford.jpg" class="img-responsive" data-zoom-image="http://knitfab.com/wp-content/uploads/2015/02/Oxford.jpg">
+          <ul class="list-unstyled">
+             <li><i class="fa fa-briefcase"></i> Dell, Google</li>
+             <li><i class="fa fa-map-marker"></i> New York, US</li>
+          </ul>
+      </div>
+      <div class="col-md-8">
+          <h2><a href="#">Product</a></h2>
+          <ul class="list-unstyled funny-boxes-rating">
+             <li><i class="fa fa-star"></i></li>
+             <li><i class="fa fa-star"></i></li>
+             <li><i class="fa fa-star"></i></li>
+             <li><i class="fa fa-star"></i></li>
+             <li><i class="fa fa-star"></i></li>
+          </ul>
+          <hr style="margin: 8px !important;">
+         <span style="color: red;font-size: 150%;">$ 50</span><br>
+         <%= link_to "Design", design_products_path(id: 2), class: "btn btn-u btn-u-orange"%>
+      </div>
+  </div>                            
+</div>
+<div class="tab-v2">
+	<ul class="nav nav-tabs">
+	    <li class="active"><a href="#description" data-toggle="tab">Description</a></li>
+	    <li><a href="#review" data-toggle="tab">Review</a></li>                        
+	</ul>                
+	<div class="tab-content">
+    <div class="tab-pane fade in active" id="description">
+      <p>Vivamus imperdiet condimentum diam, eget </p>                        
+    </div>
+    <div class="tab-pane fade in" id="review">
+      <p>Review</p>
+    </div>                        
+	</div>
+</div>
+<script>
+  $('#zoom_01').elevateZoom(); 
+</script>

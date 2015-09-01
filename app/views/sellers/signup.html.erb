@@ -1,6 +1,10 @@
 <%= form_for @seller do |f|%>
 	<%= f.fields_for :user do |u|%>
 	<div class="field">
+	    <%= u.label :username %><br />
+	    <%= u.text_field :username %>
+	</div>
+	<div class="field">
 	    <%= u.label :email %><br />
 	    <%= u.email_field :email, autofocus: true %>
 	</div>

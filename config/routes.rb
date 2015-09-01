@@ -1,13 +1,36 @@
 Rails.application.routes.draw do  
-  devise_scope :user do
-    get "sign_in", to: "sessions#new"
-    get "admins/sign_in", to: "sessions#admin_new"
-    get "tailors/sign_in", to: "sessions#tailor_new"
-    get "sellers/sign_in", to: "sessions#seller_new"
-    get "sessions/failour", to: "sessions#failour"
-  end
+  # devise_scope :user do
+  #   get "sign_in", to: "sessions#new"
+  #   get "admins/sign_in", to: "sessions#admin_new"
+  #   get "tailors/sign_in", to: "sessions#tailor_new"
+  #   get "sellers/sign_in", to: "sessions#seller_new"
+  #   get "sessions/failour", to: "sessions#failour"
+  # end
 
-  devise_for :users, :controllers => {:sessions => 'sessions'} 
+  # devise_for :users, :controllers => {:sessions => 'sessions'} 
+
+  
+  devise_for :users, :controllers => { :sessions => 'local_devise/sessions', 
+                                       :registrations => 'local_devise/registrations', 
+                                       :passwords => 'local_devise/passwords', 
+                                       :confirmations => 'local_devise/confirmations', 
+                                       :omniauth_callbacks => 'local_devise/omniauth_callbacks'}
+  devise_scope :users do
+    get '/users', :to => 'dashboard#index', :as => :user_root
+  end  
+
+  # match '/admin' => 'admin#index'
+  # match '/dashboard' => 'dashboard#index'
+  # match '/help' => 'help#index'
+
+  # match '/admin/add_new_user' => 'admin#add_new_user', :as => :add_new_user
+  # match '/admin/:id/update_user' => 'admin#update_user', :as => :update_user
+  # match '/admin/:id/delete_user' => 'admin#delete_user', :as => :delete_user
+
+  get '/facebox/fb_edit_user' => 'facebox#fb_edit_user', :as => :fb_edit_user
+  get '/facebox/fb_create_user' => 'facebox#fb_create_user', :as => :fb_create_user
+  get '/facebox/fb_login' => 'facebox#fb_login', :as => :fb_login  
+  get '/facebox/fb_reset_password' => 'facebox#fb_reset_password', :as => :fb_reset_password
 
   
   # The priority is based upon order of creation: first created -> highest priority.
@@ -15,7 +38,7 @@ Rails.application.routes.draw do
 
   # You can have the root of your site routed with "root"
   root 'home#index'
-  get "new_login", to: "home#login"
+  resources :filters
   resources :admins do
     collection do
       get :signup, :welcome
@@ -31,7 +54,12 @@ Rails.application.routes.draw do
     end
   end
   resources :images
-  resources :products, only: [:index]
+  # resources :products, only: [:index]
+  resources :products do
+    collection do
+      get :details, :design
+    end
+  end
   resources :sellers do
     collection do
       get :signup, :welcome, :products, :ajax_products

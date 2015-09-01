@@ -1,25 +1,32 @@
-<h2>Change your password</h2>
+<%= render :partial => 'layouts/partials/seotags', :locals => {:page_name => 'devise.passwords.edit'} -%>
+  <h3><%= t(:change_password, scope: :'myinfo.devise.messages') -%></h3>
 
-<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
-  <%= devise_error_messages! %>
-  <%= f.hidden_field :reset_password_token %>
+  <%= form_for(resource, :as => resource_name, :url => password_path(resource_name, username: params[:username]), :html => { :method => :put, :class => "form-horizontal", :data => { spinner: "#new_pwd_spinner"}}) do |f| %>
+    <%= devise_error_messages! %>
+    <%= f.hidden_field :reset_password_token %>
 
-  <div class="field">
-    <%= f.label :password, "New password" %><br />
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autofocus: true, autocomplete: "off" %>
-  </div>
+    <div class="control-group">
+      <label class="control-label" for="username">Username</label>
+      <div class="controls">
+        <%= f.text_field :username, :class =>"input-large uneditable-input", :readonly => true, :id => "username", :value => params[:username] %>
+      </div>
+    </div>
+    <div class="control-group">
+      <%= f.label :password, :class => "control-label", :for => "pwd" %>
+      <div class="controls">
+        <%= f.password_field :password, :class =>"input-large", :autocomplete => "off", :id => "pwd" %>
+      </div>
+    </div>
+    <div class="control-group">
+      <%= f.label :confirm_new_password, :class => "control-label", :for => "cpwd"  %>
+      <div class="controls">
+        <%= f.password_field :password_confirmation, :class =>"input-large", :autocomplete => "off", :id => "cpwd" %>
+      </div>
+    </div>
+    <div class="control-group">
+      <div class="controls">
+       <%= f.submit t(:change_password, scope: :'myinfo.devise.buttons'), :class => "btn" %>&nbsp;<%= spinner_tag 'new_pwd_spinner' %>
+      </div>
+    </div>
+  <% end %>
 
-  <div class="field">
-    <%= f.label :password_confirmation, "Confirm new password" %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Change my password" %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>

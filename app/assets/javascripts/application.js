@@ -20,6 +20,7 @@
 //= require frontend/slider/modernizr
 //= require frontend/bootstrap.min
 //= require frontend/app
+//= require frontend/jquery.elevateZoom-3.0.8.min.js
 //= require frontend/index
 //= require frontend/jquery-migrate-1.2.1.min
 
@@ -30,7 +31,6 @@ $(document).ready(function() {
       $('.bs-example-modal-sm').modal('show');
     });
   }
-
   clickOnPopupLink();
 
 });

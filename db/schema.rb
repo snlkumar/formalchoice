@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150808153647) do
+ActiveRecord::Schema.define(version: 20150825172539) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -58,6 +58,19 @@ ActiveRecord::Schema.define(version: 20150808153647) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "friendly_id_slugs", force: :cascade do |t|
+    t.string   "slug",                      null: false
+    t.integer  "sluggable_id",              null: false
+    t.string   "sluggable_type", limit: 50
+    t.string   "scope"
+    t.datetime "created_at"
+  end
+
+  add_index "friendly_id_slugs", ["slug", "sluggable_type", "scope"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type_and_scope", unique: true, using: :btree
+  add_index "friendly_id_slugs", ["slug", "sluggable_type"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type", using: :btree
+  add_index "friendly_id_slugs", ["sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_id", using: :btree
+  add_index "friendly_id_slugs", ["sluggable_type"], name: "index_friendly_id_slugs_on_sluggable_type", using: :btree
+
   create_table "images", force: :cascade do |t|
     t.integer  "product_id"
     t.string   "avatar"
@@ -66,20 +79,21 @@ ActiveRecord::Schema.define(version: 20150808153647) do
   end
 
   create_table "products", force: :cascade do |t|
-    t.string   "name"
-    t.string   "code"
+    t.string   "name",                        null: false
+    t.string   "code",                        null: false
     t.float    "face_price"
-    t.float    "back_price"
-    t.integer  "quantity"
-    t.integer  "brand_id"
-    t.integer  "color_id"
-    t.integer  "seller_id"
-    t.boolean  "isactive"
-    t.boolean  "is_sale"
-    t.float    "sale_price"
+    t.float    "back_price",  default: 0.0
+    t.integer  "quantity",                    null: false
+    t.integer  "brand_id",                    null: false
+    t.integer  "color_id",                    null: false
+    t.integer  "seller_id",                   null: false
+    t.integer  "discount_id"
+    t.boolean  "isactive",    default: true
+    t.boolean  "is_sale",     default: false
+    t.float    "sale_price",  default: 0.0
     t.string   "description"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
   end
 
   create_table "sellers", force: :cascade do |t|
@@ -93,24 +107,34 @@ ActiveRecord::Schema.define(version: 20150808153647) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.string   "email",                  default: "", null: false
-    t.string   "encrypted_password",     default: "", null: false
+    t.string   "email",                  default: ""
+    t.string   "encrypted_password",     default: "",      null: false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          default: 0,  null: false
+    t.integer  "sign_in_count",          default: 0
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
-    t.inet     "current_sign_in_ip"
-    t.inet     "last_sign_in_ip"
-    t.integer  "admin_id"
-    t.integer  "tailor_id"
+    t.string   "current_sign_in_ip"
+    t.string   "last_sign_in_ip"
     t.integer  "seller_id"
-    t.datetime "created_at",                          null: false
-    t.datetime "updated_at",                          null: false
+    t.integer  "tailor_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "username",               default: "",      null: false
+    t.string   "role",                   default: "guest"
+    t.string   "provider"
+    t.string   "uid"
+    t.string   "image_url"
+    t.string   "confirmation_token"
+    t.datetime "confirmed_at"
+    t.datetime "confirmation_sent_at"
+    t.string   "unconfirmed_email"
   end
 
+  add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true, using: :btree
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
+  add_index "users", ["username"], name: "index_users_on_username", unique: true, using: :btree
 
 end

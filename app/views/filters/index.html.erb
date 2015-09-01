@@ -1,0 +1,15 @@
+<div class="breadcrumbs">
+    <div class="container">
+        <h1 class="pull-left">Filters</h1>       
+    </div>
+</div>
+<%@products.each do |p|%>                
+    <div class="col-md-3">
+        <div class="bg-light"><!-- You can delete "bg-light" class. It is just to make background color -->      
+            <%=image_tag(p.images.first.avatar_url(:thumb)) unless p.images.blank?%>  
+            <h4><%=p.name%></h4>
+            <p></p>
+            <a href="#">Add</a>
+        </div>
+    </div>
+<% end %>

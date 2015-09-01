@@ -1,0 +1,45 @@
+<div class="modal-dialog modal-sm">
+  <div class="modal-content">
+    <div class="modal-header">
+        <button aria-hidden="true" data-dismiss="modal" class="close" type="button">×</button>
+    </div>
+    <div class="modal-body">
+      <div class="reg-block">
+        <div class="reg-block-header">
+          <h2><%= t(:welcome, scope: :'myinfo.messages') -%></h2>
+          <ul class="social-icons text-center">
+            <li><a class="rounded-x social_facebook" data-original-title="Facebook" href="#"></a></li>
+            <li><a class="rounded-x social_twitter" data-original-title="Twitter" href="#"></a></li>
+            <li><a class="rounded-x social_googleplus" data-original-title="Google Plus" href="#"></a></li>
+            <li><a class="rounded-x social_linkedin" data-original-title="Linkedin" href="#"></a></li>
+          </ul>
+          <p>Don't Have Account? Click <%=link_to t(:sign_up, scope: :'myinfo.menu'), fb_create_user_path, :remote => true, class: "color-green" %> to registration.</p>            
+        </div>
+        <%= form_for(resource, :as => resource_name, :url => session_path(resource_name), :html => { :id => "login",:class => "form-horizontal", :data => { remote: true, spinner: "#login_spinner"}}) do |f| %>
+          <div id="login_errors"></div>
+          <div class="input-group margin-bottom-20">
+            <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
+            <%= f.text_field :username, :input_html => { :autocomplete => :off}, class: "form-control", placeholder: "Email" %>
+          </div>
+          <div class="input-group margin-bottom-20">
+            <span class="input-group-addon"><i class="fa fa-lock"></i></span>
+            <%= f.password_field :password, class: "form-control", placeholder: "Password" %>
+          </div>         
+          <%= link_to t(:forgot_password, scope: :'myinfo.buttons'), fb_reset_password_path, :remote => true, :class => 'form_align_with_input' %>
+          <hr>
+          <label class="checkbox">
+            <input type="checkbox"> 
+            <p><%= t(:remember_me, scope: :'myinfo.buttons') -%></p>
+          </label>
+          <div class="row">
+            <div class="col-md-10 col-md-offset-1">
+             <% spinner_tag 'login_spinner' %>
+              <button type="submit" class="btn-u btn-block">Log In</button>
+            </div>
+          </div>          
+        <% end %>
+      </div>
+<!--End Reg Block-->
+    </div>
+  </div>
+</div>

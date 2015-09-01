@@ -7,8 +7,9 @@ class SellersController < ApplicationController
 	end
 
 	def create
+		# debugger
 		@seller = Seller.new seller_params
-		if @seller.save
+		if @seller.save!
 			flash[:notice] = "You have subscribed successfully.Admin will approve you then you will be able to login into system."
 			redirect_to welcome_sellers_path
 		else

@@ -1,5 +1,5 @@
 class ProductsController < ApplicationController
-	layout 'admin'
+	# layout 'application'
 	def new
 		@product = current_user.seller.products.new
 		@product_images = @product.images.build
@@ -25,6 +25,13 @@ class ProductsController < ApplicationController
 		@product = Product.find params[:id]
 	end
 
+	def details
+	end
+
+	def design
+		puts "i am in with the params#{params}"
+	end
+	
 	private
 	def product_params
 		params[:product].permit!

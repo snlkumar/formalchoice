@@ -24,7 +24,11 @@ gem 'therubyracer', platforms: :ruby
 gem 'will_paginate', '~> 3.0.6'
 gem 'carrierwave'
 gem 'rmagick'
-
+gem 'friendly_id', '~> 5.1.0'
+# gem 'simple_form'
+gem 'best_in_place'
+gem 'google-analytics-rails'
+gem 'omniauth-twitter'
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks

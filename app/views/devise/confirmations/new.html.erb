@@ -1,16 +1,21 @@
-<h2>Resend confirmation instructions</h2>
+<%= render :partial => 'layouts/partials/seotags', :locals => {:page_name => 'devise.confirmations.new'} -%>
 
-<%= form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post }) do |f| %>
-  <%= devise_error_messages! %>
-
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email) %> 
+<div class="narrow-well very devise-form">
+  <div class="modal-header">  
+    <h3><%= t(:account_confirmation, scope: :'myinfo.devise.messages') -%></h3>
+  </div>  
+  <div class="modal-body">
+    <%= simple_form_for(resource, :as => resource_name, :url => confirmation_path(resource_name), :html => { :method => :post, :id => 'email_confirmation', :class => "form-horizontal", :data => { spinner: "#email_confirmation_spinner"}}) do |f| %>
+      <%= t(:account_confirmation_message, scope: :'myinfo.devise.messages') -%>
+      <br /><br />
+      <%= devise_error_messages! %>
+      <%= f.input :username, :input_html => { :autocomplete => :off} %>
+  
+      <div class="control-group">
+        <div class="controls">
+          <%= f.submit t(:email_account_confirmation, scope: :'myinfo.devise.buttons'), :class => "btn" %>&nbsp;<%= spinner_tag 'email_confirmation_spinner' %>
+        </div>
+      </div>
+    <% end %>
   </div>
-
-  <div class="actions">
-    <%= f.submit "Resend confirmation instructions" %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+</div>
