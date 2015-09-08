@@ -1,0 +1,23 @@
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>Name</th>
+            <th class="hidden-sm">price</th>
+            <th>Image</th>
+            <th>Status</th>
+        </tr>
+    </thead>
+    <tbody>
+    	<%@bottoms.each_with_index do |p, i|%>
+    		<tr>
+	            <td><%= i+1%></td>
+	            <td><%=link_to p.name, edit_bottom_path(p)%></td>
+	            <td class="hidden-sm"><%= p.price%></td>
+	            
+	            <td><%= image_tag(p.avatar_url(:design_thumb))%></td>
+	            <td><button class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i> Delete</button></td>
+	        </tr>
+    	<% end %>
+    </tbody>
+</table>

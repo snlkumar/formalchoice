@@ -1,0 +1,29 @@
+<div class="stepwizard">
+		<div class="stepwizard-row setup-panel">
+			<div class="stepwizard-step">
+				<a href="#step-1" type="button" class="btn btn-default btn-circle"  disabled="disabled">1</a>
+				<p>Custom Design</p>
+			</div>
+			<div class="stepwizard-step">
+				<a href="#step-2" type="button" class="btn btn-default btn-circle" disabled="disabled">2</a>
+				<p>Measurement</p>
+			</div>
+			<div class="stepwizard-step">
+				<a href="#step-3" type="button" class="btn-u btn-circle">3</a>
+				<p>Shipping Address</p>
+			</div>
+		</div>
+</div>
+	
+	
+		<div id="step-1" class="sky-form">
+			<fieldset>
+				<section>
+					<label class="label">Preview</label>
+					<div class="row">
+						<%= @order_item.attributes%>
+						
+					</div>                      
+				</section>				
+			</fieldset>
+		</div>

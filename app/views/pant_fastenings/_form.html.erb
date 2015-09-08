@@ -1,0 +1,31 @@
+<%= form_for @pant_fastening, :html => { :multipart => true, class: "sky-form" } do |f|%>
+    <header>Pant Festening</header>
+        
+    <fieldset>                  
+        <div class="row">
+            <section class="col col-4">
+                <%=f.label :name, class: "label"%>
+                <label class="input">                    
+                    <%= f.text_field :name%>
+                </label>
+            </section>
+            <section class="col col-4">
+                <%=f.label :price, class: "label"%>
+                <label class="input">                    
+                    <%= f.text_field :price%>
+                </label>
+            </section>
+            <section class="col col-4">
+                <%=f.label :image, class: "label"%>
+                <label class="input">                   
+                    <%= f.file_field :avatar%>
+                </label>
+            </section>
+        </div>                        
+        
+    </fieldset>
+    
+    <footer>
+        <button type="submit" name="submit" class="button">Create</button>
+    </footer>
+<% end %> 

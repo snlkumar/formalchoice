@@ -29,7 +29,10 @@ class ProductsController < ApplicationController
 	end
 
 	def design
-		puts "i am in with the params#{params}"
+		# puts "i am in with the params#{params}"
+		# @order = Order.new
+		@order = Order.create(user_id: 1, order_status: "initiate")
+		@order_item = OrderItem.new(product_id: params[:id], order_id: @order.id)
 	end
 	
 	private

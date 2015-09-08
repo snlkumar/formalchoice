@@ -1,4 +1,16 @@
 Rails.application.routes.draw do  
+  get 'measurements/index'
+
+  get 'measurements/new'
+
+  get 'measurements/edit'
+
+  get 'measurements/create'
+
+  get 'measurements/update'
+
+  get 'measurements/destroy'
+
   # devise_scope :user do
   #   get "sign_in", to: "sessions#new"
   #   get "admins/sign_in", to: "sessions#admin_new"
@@ -71,6 +83,21 @@ Rails.application.routes.draw do
     #   end
     # end
   end
+
+  resources :orders
+  resources :order_items
+  resources :pockets
+  resources :back_pockets
+  resources :fits
+  resources :side_pockets
+  resources :pant_cuffs
+  resources :plates
+  resources :pant_fastenings
+  resources :sleeves
+  resources :collars
+  resources :plackets
+  resources :bottoms
+  resources :pleats
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
