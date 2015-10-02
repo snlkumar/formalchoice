@@ -1,15 +1,15 @@
 Rails.application.routes.draw do  
-  get 'measurements/index'
+  # get 'measurements/index'
 
-  get 'measurements/new'
+  # get 'measurements/new'
 
-  get 'measurements/edit'
+  # get 'measurements/edit'
 
-  get 'measurements/create'
+  # get 'measurements/create'
 
-  get 'measurements/update'
+  # get 'measurements/update'
 
-  get 'measurements/destroy'
+  # get 'measurements/destroy'
 
   # devise_scope :user do
   #   get "sign_in", to: "sessions#new"
@@ -51,6 +51,8 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
   root 'home#index'
   resources :filters
+  resources :order_steps
+  resources :checkouts
   resources :admins do
     collection do
       get :signup, :welcome
@@ -84,7 +86,11 @@ Rails.application.routes.draw do
     # end
   end
 
-  resources :orders
+  resources :orders do
+    collection do
+      get :invoice
+    end
+  end
   resources :order_items
   resources :pockets
   resources :back_pockets

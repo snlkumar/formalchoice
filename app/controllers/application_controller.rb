@@ -3,8 +3,17 @@ class ApplicationController < ActionController::Base
   helper_method :current_msg, :set_msg, :clear_msg, :is_msg?
   
   private
+  def login_required
+    redirect_to new_user_session_path if current_user.nil?
+  end
   
   def after_sign_out_path_for(resource_or_scope)
+    root_path
+  end
+
+  def after_sign_in_path_for(resource_or_scope)
+    debugger
+    p "i am in after"
     root_path
   end
  

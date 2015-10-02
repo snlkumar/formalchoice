@@ -1,0 +1,110 @@
+<div class="stepwizard">
+		<div class="stepwizard-row setup-panel">
+			<div class="stepwizard-step">
+				<a href="#step-1" type="button" class="btn-u btn-circle">1</a>
+				<p>Custom Design</p>
+			</div>
+			<div class="stepwizard-step">
+				<a href="#step-2" type="button" class="btn btn-default btn-circle" disabled="disabled">2</a>
+				<p>Measurement</p>
+			</div>
+			<div class="stepwizard-step">
+				<a href="#step-3" type="button" class="btn btn-default btn-circle" disabled="disabled">3</a>
+				<p>Shipping Address</p>
+			</div>
+		</div>
+</div>
+	
+	
+		<div id="step-1" class="sky-form">
+			<fieldset> 				
+				<section>
+					<label class="label">Fit</label>
+					<div class="row">
+						<%=f.hidden_field :order_id%>
+						<%=f.hidden_field :product_id%>
+						<%Fit.all.each do |fi|%>
+							<div class="col-xs-3">		        				
+		        				<%=image_tag(fi.avatar_url(:design_thumb), class: "img-radio")%>
+		        				<label class="radio">
+		        					<%= f.radio_button :fit_id, fi.id%>
+		        					<i class="rounded-x"></i><%=fi.name%>
+		        				</label>
+	        				</div>	
+        				<% end %>					
+					</div>                      
+				</section> 
+				<section>
+					<label class="label">Pleats</label>
+					<div class="row">
+						<%Pleat.all.each do |p|%>
+							<div class="col-xs-3">		        				
+		        				<%=image_tag(p.avatar_url(:design_thumb), class: "img-radio")%>
+		        				<label class="radio">
+		        					<%= f.radio_button :pleat_id, p.id%>
+		        					<i class="rounded-x"></i><%=p.name%>
+		        				</label>
+	        				</div>	
+        				<% end %>					
+					</div>                      
+				</section>
+				<section>
+					<label class="label">Pant Fastening</label>
+					<div class="row">
+						<%PantFastening.all.each do |pf|%>
+							<div class="col-xs-3">		        				
+		        				<%=image_tag(pf.avatar_url(:design_thumb), class: "img-radio")%>
+		        				<label class="radio">
+		        					<%= f.radio_button :pant_fastening_id, pf.id%>
+		        					<i class="rounded-x"></i><%=pf.name%>
+		        				</label>
+	        				</div>	
+        				<% end %>					
+					</div>                      
+				</section> 
+				<section>
+					<label class="label">Side Pocket</label>
+					<div class="row">
+						<%SidePocket.all.each do |sp|%>
+							<div class="col-xs-3">		        				
+		        				<%=image_tag(sp.avatar_url(:design_thumb), class: "img-radio")%>
+		        				<label class="radio">
+		        					<%= f.radio_button :side_pocket_id, sp.id%>
+		        					<i class="rounded-x"></i><%=sp.name%>
+		        				</label>
+	        				</div>	
+        				<% end %>					
+					</div>                      
+				</section> 
+				<section>
+					<label class="label">Back Pocket</label>
+					<div class="row">
+						<%BackPocket.all.each do |bp|%>
+							<div class="col-xs-3">		        				
+		        				<%=image_tag(bp.avatar_url(:design_thumb), class: "img-radio")%>
+		        				<label class="radio">
+		        					<%= f.radio_button :back_pocket_id, bp.id%>
+		        					<i class="rounded-x"></i><%=bp.name%>
+		        				</label>
+	        				</div>	
+        				<% end %>					
+					</div>                      
+				</section> 
+				<section>
+					<label class="label">Pant Cuff</label>
+					<div class="row">
+						<%PantCuff.all.each do |p|%>
+							<div class="col-xs-3">		        				
+		        				<%=image_tag(p.avatar_url(:design_thumb), class: "img-radio")%>
+		        				<label class="radio">
+		        					<%= f.radio_button :pant_cuff_id, p.id%>
+		        					<i class="rounded-x"></i><%=p.name%>
+		        				</label>
+	        				</div>	
+        				<% end %>					
+					</div>                      
+				</section>                 
+				
+			</fieldset>
+		</div>
+		

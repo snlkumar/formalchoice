@@ -9,6 +9,7 @@ class CreateProducts < ActiveRecord::Migration
     	t.references :brand, null: false
     	t.references :color, null: false
     	t.references :seller, null: false
+        t.references :category, null: false
         t.references :discount
     	t.boolean :isactive, default: true
     	t.boolean :is_sale, default: false

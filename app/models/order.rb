@@ -1,33 +1,10 @@
 class Order < ActiveRecord::Base
-	attr_writer :current_step
-	def current_step
-	  @current_step || steps.first
-	end
+	attr_writer :current_step	
+	has_many :order_items, dependent: :destroy
+	has_one :shipping_address, dependent: :destroy
+	accepts_nested_attributes_for :shipping_address
 
-	def steps
-	  %w[designing measurement confirmation]
-	end
-
-	def next_step
-	  self.current_step = steps[steps.index(current_step)+1]
-	end
-
-	def previous_step
-	  self.current_step = steps[steps.index(current_step)-1]
-	end
-
-	def first_step?
-	  current_step == steps.first
-	end
-
-	def last_step?
-	  current_step == steps.last
-	end
-
-	def all_valid?
-	  steps.all? do |step|
-	    self.current_step = step
-	    valid?
-	  end
+	def total
+	  self.order_items.map(&:price).sum
 	end
 end

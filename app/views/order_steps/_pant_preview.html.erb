@@ -1,0 +1,49 @@
+<section>
+    <div class="row">
+        <label class="label col col-4">Product</label>
+        <label class="label col col-8"><%=f.object.product.name %>
+        </label>
+    </div>
+</section>
+<section>
+    <div class="row">
+        <label class="label col col-4">Pant Fastening</label>
+        <label class="label col col-8"><%=f.object.pant_fastening.name unless  f.object.pant_fastening.blank?%>
+        </label>
+    </div>
+</section>
+<section>
+    <div class="row">
+        <label class="label col col-4">Fitting</label>
+        <label class="label col col-8"><%=f.object.fit.name unless f.object.fit.blank?%>
+        </label>
+    </div>
+</section>
+<section>
+    <div class="row">
+        <label class="label col col-4">Back Pocket</label>
+        <label class="label col col-8"><%=f.object.back_pocket.name unless  f.object.back_pocket.blank?%>
+        </label>
+    </div>
+</section>
+<section>
+    <div class="row">
+        <label class="label col col-4">Pant Cuff</label>
+        <label class="label col col-8"><%=f.object.pant_cuff.name unless f.object.pant_cuff.blank?%>
+        </label>
+    </div>
+</section>
+<section>
+    <div class="row">
+        <label class="label col col-4">Side Pocket</label>
+        <label class="label col col-8"><%=f.object.side_pocket.name unless  f.object.side_pocket.blank?%>
+        </label>
+    </div>
+</section>
+<section>
+    <div class="row">
+        <label class="label col col-4">Pleat</label>
+        <label class="label col col-8"><%=f.object.pleat.name unless f.object.pleat.blank? %>
+        </label>
+    </div>
+</section>

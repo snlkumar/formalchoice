@@ -1,6 +1,13 @@
 class OrderItem < ActiveRecord::Base
 	has_one :measurement, dependent: :destroy	
 	belongs_to :back_pocket
+	belongs_to :fit
+	belongs_to :pant_cuff
+	belongs_to :pant_fastening
+	belongs_to :side_pocket
+	belongs_to :pleat
+	belongs_to :product
+	belongs_to :order
 	accepts_nested_attributes_for :measurement
 	
 	attr_writer :current_step

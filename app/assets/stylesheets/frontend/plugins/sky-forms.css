@@ -79,7 +79,7 @@
 .sky-form .input input,
 .sky-form .select select,
 .sky-form .textarea textarea {
-	display: block;
+	display: inline-block;
 	box-sizing: border-box;
 	-moz-box-sizing: border-box;
 	width: 100%;

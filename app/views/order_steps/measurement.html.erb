@@ -1,0 +1,137 @@
+<div class="stepwizard">
+	<div class="stepwizard-row setup-panel">
+		<div class="stepwizard-step">
+			<a href="#step-1" type="button" class="btn btn-default btn-circle" disabled="disabled">1</a>
+			<p>Custom Design</p>
+		</div>
+		<div class="stepwizard-step">
+			<a href="#step-2" type="button" class="btn-u btn-circle" >2</a>
+			<p>Measurement</p>
+		</div>
+		<div class="stepwizard-step">
+			<a href="#step-3" type="button" class="btn btn-default btn-circle" disabled="disabled">3</a>
+			<p>Shipping Address</p>
+		</div>
+	</div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){
+	$("#measurement").hide();
+});
+
+$(document).on("click", "#order_item_measurement_attributes_measurement_type_own", function(e){
+	$("#call_to_tailor").hide();
+	$("#measurement").show();
+});
+$(document).on("click", "#order_item_measurement_attributes_measurement_type_tailor", function(e){
+	$("#call_to_tailor").show();
+	$("#measurement").hide();
+});
+</script>
+<!-- Measurement form-->
+<%= form_for @order_item, url: wizard_path do |f| %>
+	<% if @order_item.errors.any? %>
+		<div class="alert alert-danger fade in">
+			<ul>
+	            <% @order_item.errors.full_messages.each do |e|%>
+	            	<li><%=e%></li>
+	            <% end %>
+	        </ul>
+        </div>
+		
+	<% end %>
+	<%= f.fields_for :measurement do |m|%>
+		<div class="sky-form">
+			<fieldset>
+	            <div class="row">
+	                                         
+	                <div class="col col-2"></div>
+	                
+	                <section>
+                            <div class="inline-group">
+                            	<label class="radio"><%= m.radio_button :measurement_type, 'tailor',
+                            	:checked => (m.object.measurement_type == 'tailor') %>
+		        					<i class="rounded-x"></i>Call To Tailor
+		        				</label>
+		        				<label class="radio"><%= m.radio_button :measurement_type, 'own',
+                            	:checked => (m.object.measurement_type == 'own')%>
+		        					<i class="rounded-x"></i>Enter Measurement
+		        				</label>
+                            </div>
+	                </section>
+	            </div>
+	            <div id="call_to_tailor">		 	
+					<%= render 'tailor_request',f: m%>
+				</div>
+				<div id="measurement">
+					<%= render "#{f.object.product.category.name}_measurement", f: m %>
+					<% render "shirt_measurement", f: m if f.object.product.category.name == 'shirt'%>     
+				</div> 
+	        </fieldset>
+			
+			  
+	        <footer>
+	            <button class="btn-u nextBtn pull-right" type="submit" >Next</button>
+	            <%= link_to "Back", edit_order_item_path(@order_item.id), class: "btn-u nextBtn pull-left" %>
+	        </footer>
+		</div>
+	<% end %>
+<% end %>
+
+
+
+<!-- End of measurement-->
+	
+
+
+
+		<style type="text/css">
+/*body {
+		margin-top:40px;
+}*/
+/*.stepwizard-step p {
+		margin-top: 10px;
+}*/
+.stepwizard-row {
+		display: table-row;
+}
+.stepwizard {
+		display: table;
+		width: 100%;
+		position: relative;
+}
+.stepwizard-step button[disabled] {
+		opacity: 1 !important;
+		filter: alpha(opacity=100) !important;
+}
+.stepwizard-row:before {
+		top: 14px;
+		bottom: 0;
+		position: absolute;
+		content: " ";
+		width: 100%;
+		height: 1px;
+		background-color: #ccc;
+		z-order: 0;
+}
+.stepwizard-step {
+		display: table-cell;
+		text-align: center;
+		position: relative;
+}
+.btn-circle {
+		width: 30px;
+		height: 30px;
+		text-align: center;
+		padding: 6px 0;
+		font-size: 12px;
+		line-height: 1.428571429;
+		border-radius: 15px !important;
+}
+
+fieldset {
+	border: 1px solid silver !important;
+	margin: 0 2px !important;
+	padding: .35em .625em .75em !important;
+}
+</style>

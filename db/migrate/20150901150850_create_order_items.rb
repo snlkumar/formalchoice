@@ -15,6 +15,7 @@ class CreateOrderItems < ActiveRecord::Migration
     	t.references :back_pocket
     	t.references :side_pocket
     	t.references :fit
+        t.float :price
     	t.integer  :quantity
       	t.timestamps null: false
     end

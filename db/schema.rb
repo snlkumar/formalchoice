@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150907174753) do
+ActiveRecord::Schema.define(version: 20150926055810) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -50,6 +50,13 @@ ActiveRecord::Schema.define(version: 20150907174753) do
     t.boolean  "isactive",    default: true
     t.datetime "created_at",                 null: false
     t.datetime "updated_at",                 null: false
+  end
+
+  create_table "categories", force: :cascade do |t|
+    t.string   "name"
+    t.boolean  "status",     default: true
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
   end
 
   create_table "chest_pockets", force: :cascade do |t|
@@ -138,6 +145,7 @@ ActiveRecord::Schema.define(version: 20150907174753) do
     t.integer  "user_id"
     t.integer  "category_id"
     t.integer  "order_item_id"
+    t.datetime "avalibility"
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
   end
@@ -157,6 +165,7 @@ ActiveRecord::Schema.define(version: 20150907174753) do
     t.integer  "back_pocket_id"
     t.integer  "side_pocket_id"
     t.integer  "fit_id"
+    t.float    "price"
     t.integer  "quantity"
     t.datetime "created_at",        null: false
     t.datetime "updated_at",        null: false
@@ -233,6 +242,7 @@ ActiveRecord::Schema.define(version: 20150907174753) do
     t.integer  "brand_id",                    null: false
     t.integer  "color_id",                    null: false
     t.integer  "seller_id",                   null: false
+    t.integer  "category_id",                 null: false
     t.integer  "discount_id"
     t.boolean  "isactive",    default: true
     t.boolean  "is_sale",     default: false
@@ -243,6 +253,19 @@ ActiveRecord::Schema.define(version: 20150907174753) do
   end
 
   create_table "sellers", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "shipping_addresses", force: :cascade do |t|
+    t.integer  "order_id"
+    t.integer  "user_id"
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "email"
+    t.string   "state"
+    t.string   "city"
+    t.string   "pincode"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -281,8 +304,9 @@ ActiveRecord::Schema.define(version: 20150907174753) do
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
-    t.integer  "seller_id"
+    t.integer  "admin_id"
     t.integer  "tailor_id"
+    t.integer  "seller_id"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "username",               default: "",      null: false

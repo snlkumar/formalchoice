@@ -1,0 +1,55 @@
+<fieldset>                  
+    <section>
+        <div class="row">
+            <label class="label col col-4">Name</label>
+            <div class="col col-4">
+                <label class="input">
+                	<!-- <input type="email" name="email"> -->
+                    <%= f.text_field :name%>
+                </label>
+            </div>
+        </div>
+    </section>
+    
+    <section>
+        <div class="row">
+            <label class="label col col-4">Address</label>
+            <div class="col col-4">
+                <label class="input">
+                    <%= f.text_field :address%>
+                </label>                        
+            </div>
+        </div>
+    </section>
+    <section>
+        <div class="row">
+            <label class="label col col-4">Pincode</label>
+            <div class="col col-4">
+                <label class="input">
+                    <%= f.text_field :pincode%>
+                </label>
+            </div>
+        </div>
+    </section>
+    
+    <section>
+        <div class="row">
+            <label class="label col col-4 required">Mobile</label>
+            <div class="col col-4">
+                <label class="input">
+                    <%= f.text_field :mobile%>
+                </label>                        
+            </div>
+        </div>
+    </section>
+    <section>
+        <div class="row">
+            <label class="label col col-4">Avalibility</label>
+            <div class="col col-4">
+                <label class="input">
+                    <%= f.text_field :avalibility, class: 'date'%>
+                </label>                        
+            </div>
+        </div>
+    </section>
+</fieldset>

@@ -724,7 +724,9 @@ margin: 10px 0;
 label {
 /*display: block;*/
 /*float: left;*/
-width: 200px;
+/*width: 200px;*/
+width: auto;
+
 height: 25px;
 line-height: 55px;
 /*text-shadow: 0 1px 0 #fff;*/

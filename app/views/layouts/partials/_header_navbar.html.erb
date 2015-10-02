@@ -26,6 +26,7 @@
                 <li><%= link_to t(:login, scope: :'myinfo.menu'), fb_login_path, :remote => true, class: 'static-popup-link' %></li>&nbsp;|&nbsp;
                 <li><%= link_to t(:sign_up, scope: :'myinfo.menu'), fb_create_user_path, :remote => true, class: 'static-popup-link' %></li>
               <% end -%>
+        <li>Cart: <%=session[:order]%></li>
     </ul>
     <!-- End Topbar Navigation -->
 </div>

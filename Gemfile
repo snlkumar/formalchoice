@@ -11,6 +11,10 @@ gem 'devise'
 gem 'groupdate'
 # gem "chartkick"
 gem "highcharts-rails", "~> 3.0.0"
+gem 'wicked'
+gem 'clickatell'
+gem 'active_model_otp'
+# sms -u your_username -p your_password -k your_api_key 447771234567 'Hello from clickatell'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'

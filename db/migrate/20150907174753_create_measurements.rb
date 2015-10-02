@@ -9,7 +9,7 @@ class CreateMeasurements < ActiveRecord::Migration
       t.references :user
       t.references :category
       t.references :order_item
-
+      t.datetime :avalibility
       t.timestamps null: false
     end
   end

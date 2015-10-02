@@ -1,17 +1,18 @@
 class OrdersController < ApplicationController
-
-	def create
+	layout 'checkout'
+	def invoice
 		
-		@order = Order.new
+	end
 
-		@order.current_step = session[:order_step]
-		puts "i am in params with #{@order.current_step}"
-		if params[:back_button]
-			 @order.previous_step
+	def update
+		@order = Order.find params[:id]
+		if @order.update_attributes params[:order].permit!
+			session[:order] = nil
+			redirect_to invoice_orders_path(@order)
 		else
-			@order.next_step
+
+			p "the errors is #{@order.errors.full_messages}"
+			render '/checkouts/index' 
 		end
-		session[:order_step] = @order.current_step
-		render "products/design"
 	end
 end
