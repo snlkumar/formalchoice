@@ -1,49 +1,55 @@
-<section>
+<section class="list-style">
     <div class="row">
-        <label class="label col col-4">Product</label>
-        <label class="label col col-8"><%=f.object.product.name %>
-        </label>
+        <div class="col-md-4">Product</div>
+        <div class="col-md-8"><%=f.object.product.name %>
+        </div>
     </div>
 </section>
-<section>
+<section class="list-style">
     <div class="row">
-        <label class="label col col-4">Pant Fastening</label>
-        <label class="label col col-8"><%=f.object.pant_fastening.name unless  f.object.pant_fastening.blank?%>
-        </label>
+        <div class="col-md-4">Pant Fastening</div>
+        <div class="col-md-8"><%=f.object.pant_fastening.name unless  f.object.pant_fastening.blank?%>
+            <%=image_tag(f.object.pant_fastening.avatar_url(:design_thumb), class: "img-radio") unless  f.object.pant_fastening.blank?%>
+        </div>
     </div>
 </section>
-<section>
+<section class="list-style">
     <div class="row">
-        <label class="label col col-4">Fitting</label>
-        <label class="label col col-8"><%=f.object.fit.name unless f.object.fit.blank?%>
-        </label>
+        <div class="col-md-4">Fitting</div>
+        <div class="col-md-8"><%=f.object.fit.name unless f.object.fit.blank?%>
+            <%=image_tag(f.object.fit.avatar_url(:design_thumb), class: "img-radio")%>
+        </div>
     </div>
 </section>
-<section>
+<section class="list-style">
     <div class="row">
-        <label class="label col col-4">Back Pocket</label>
-        <label class="label col col-8"><%=f.object.back_pocket.name unless  f.object.back_pocket.blank?%>
-        </label>
+         <div class="col-md-4">Back Pocket</div>
+         <div class="col-md-8"><%=f.object.back_pocket.name unless  f.object.back_pocket.blank?%>
+             <%=image_tag(f.object.back_pocket.avatar_url(:design_thumb), class: "img-radio") unless  f.object.back_pocket.blank?%>
+        </div>
     </div>
 </section>
-<section>
+<section class="list-style">
     <div class="row">
-        <label class="label col col-4">Pant Cuff</label>
-        <label class="label col col-8"><%=f.object.pant_cuff.name unless f.object.pant_cuff.blank?%>
-        </label>
+         <div class="col-md-4">Pant Cuff</div>
+         <div class="col-md-8"><%=f.object.pant_cuff.name unless f.object.pant_cuff.blank?%>
+            <%=image_tag(f.object.pant_cuff.avatar_url(:design_thumb), class: "img-radio") unless  f.object.pant_cuff.blank?%>
+        </div>
     </div>
 </section>
-<section>
+<section class="list-style">
     <div class="row">
-        <label class="label col col-4">Side Pocket</label>
-        <label class="label col col-8"><%=f.object.side_pocket.name unless  f.object.side_pocket.blank?%>
-        </label>
+         <div class="col-md-4">Side Pocket</div>
+         <div class="col-md-8"><%=f.object.side_pocket.name unless  f.object.side_pocket.blank?%>
+            <%=image_tag(f.object.side_pocket.avatar_url(:design_thumb), class: "img-radio") unless  f.object.side_pocket.blank?%>
+        </div>
     </div>
 </section>
-<section>
+<section class="list-style">
     <div class="row">
-        <label class="label col col-4">Pleat</label>
-        <label class="label col col-8"><%=f.object.pleat.name unless f.object.pleat.blank? %>
-        </label>
+         <div class="col-md-4">Pleat</div>
+         <div class="col-md-8"><%=f.object.pleat.name unless f.object.pleat.blank? %>
+            <%=image_tag(f.object.pleat.avatar_url(:design_thumb), class: "img-radio") unless  f.object.pleat.blank?%>
+        </div>
     </div>
 </section>

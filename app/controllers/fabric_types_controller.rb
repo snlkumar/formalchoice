@@ -1,0 +1,2 @@
+class FabricTypesController < ApplicationController
+end

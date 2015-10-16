@@ -15,6 +15,61 @@
 @import url(frontend/plugins/animate.css);
 @import url(frontend/plugins/box-shadows.css);
 
+
+
+.list-group-item ul {
+  list-style: none outside none;
+  padding: 0;
+}
+
+.inline-checkbox > input {
+  vertical-align: text-bottom;
+}
+
+.list-group-item ul {
+  float: left;
+  margin: 0 0 12px 12px;
+}
+
+.main_title {
+  background: none repeat scroll 0 0 #72C02C;
+  color: #FFFFFF;
+  float: left;
+  font-weight: bold;
+  margin-bottom: 15px;
+  padding: 3% 6%;
+  text-transform: uppercase;
+  width: 100%;
+}
+
+.list-group-item li {
+  font-weight: bold;
+}
+
+small {
+  font-size: 13px;
+  font-weight: bold;
+}
+
+.pull-right.breadcrumb > li {
+  float: left;
+  padding: 0 10px;
+}
+
+.new_order_item {
+  margin-top: 25px;
+}
+
+.edit_order_item {
+  margin-top: 25px;
+}
+
+.usr-form label {
+  margin: 0;
+  padding: 0;
+}
+
+
 /*Boxed Layout
 ------------------------------------*/
 /* custom css*/
@@ -24,9 +79,9 @@
 	height: 24px;
 	line-height: 23px;
 }
-.col-md-3 {
+/*.col-md-3 {
 	padding-left: inherit;
-}
+}*/
 
 .nav-tabs li a {
 	color: darkgray !important;
@@ -2210,6 +2265,14 @@ ul.labels-demo li {
 
 .team-v2 img {
 	width: 100%;
+	height: 100px;
+}
+
+.inline-checkbox {
+	display: inline-block;
+	font-weight: normal;
+	padding-left:15px;
+	line-height: 0px;
 }
 
 .team-v2 .inner-team {

@@ -104,6 +104,7 @@ Rails.application.routes.draw do
   resources :plackets
   resources :bottoms
   resources :pleats
+  resources :fabric_types
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

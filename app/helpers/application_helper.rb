@@ -1,10 +1,22 @@
 module ApplicationHelper
 
-   def brands
-      Brand.where(isactive: true)
+   def pant_brands
+      Brand.where(isactive: true, category_id: 1)
    end
+
+   def shirt_brands
+      Brand.where(isactive: true, category_id: 2)
+   end
+
    def colors
-	Color.where(isactive: true)
+	   Color.where(isactive: true)
+   end
+
+   def pant_fabrics
+     FabricType.where(isactive: true, category_id: 1)
+   end
+   def shirt_fabrics
+     FabricType.where(isactive: true, category_id: 2)
    end
 
   def active_tab tab

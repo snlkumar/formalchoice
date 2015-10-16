@@ -1,11 +1,11 @@
-<div class="breadcrumbs">
+<!-- <div class="breadcrumbs">
 		<div class="container">
 				<h1 class="pull-left">Breadcrumbs</h1>       
 		</div>
-</div>
+</div> -->
 <%= form_for @order_item do |f|%>
-	<%= render "pant_designing_step", f: f if f.object.product.category.name == 'pant'%>
-	<%= render "shirt_designing_step", f: f if f.object.product.category.name == 'shirt'%>
+	<%= render "#{f.object.product.category.name}_designing_step", f: f %>
+	<% render "shirt_designing_step", f: f if f.object.product.category.name == 'shirt'%>
 
 	<% f.submit "Continue", class: "btn-u nextBtn pull-right" %>
 	<p><button class="btn-u nextBtn pull-right" type="submit" >Next</button></p>	

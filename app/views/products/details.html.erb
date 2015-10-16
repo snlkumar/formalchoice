@@ -6,11 +6,12 @@
 <div class="funny-boxes funny-boxes-top-sea">
   <div class="row">
       <div class="col-md-4 funny-boxes-img">
-          <img alt="" id="zoom_01" src="http://knitfab.com/wp-content/uploads/2015/02/Oxford.jpg" class="img-responsive" data-zoom-image="http://knitfab.com/wp-content/uploads/2015/02/Oxford.jpg">
-          <ul class="list-unstyled">
+
+          <img alt="" id="zoom_02" src="<%=@product.images.first.avatar_url%> " class="img-responsive" >
+          <!-- <ul class="list-unstyled">
              <li><i class="fa fa-briefcase"></i> Dell, Google</li>
              <li><i class="fa fa-map-marker"></i> New York, US</li>
-          </ul>
+          </ul> -->
       </div>
       <div class="col-md-8">
           <h2><a href="#">Product</a></h2>
@@ -23,7 +24,7 @@
           </ul>
           <hr style="margin: 8px !important;">
          <span style="color: red;font-size: 150%;">$ 50</span><br>
-         <%= link_to "Design", new_order_item_path(id: 1), class: "btn btn-u btn-u-orange"%>
+         <%= link_to "Design", new_order_item_path(id: @product), class: "btn btn-u btn-u-orange"%>
       </div>
   </div>                            
 </div>
@@ -34,10 +35,25 @@
 	</ul>                
 	<div class="tab-content">
     <div class="tab-pane fade in active" id="description">
-      <p>Vivamus imperdiet condimentum diam, eget </p>                        
+      <p>Vivamus imperdiet condimentum diam, eget
+      Vivamus imperdiet condimentum diam, eget
+      Vivamus imperdiet condimentum diam, eget </p>                        
+      Vivamus imperdiet condimentum diam, eget
+      Vivamus imperdiet condimentum diam, eget
+      Vivamus imperdiet condimentum diam, eget
+
+      Vivamus imperdiet condimentum diam, eget
     </div>
     <div class="tab-pane fade in" id="review">
-      <p>Review</p>
+      <p>
+        Review
+        Review
+        Review
+        Review
+        Review
+        Review
+        Review
+      </p>
     </div>                        
 	</div>
 </div>

@@ -1,5 +1,6 @@
 class FiltersController < ApplicationController
 	def index
-		@products = Product.by_brand(params[:brand_ids])		
+		return @products = Product.all if params[:brand_ids].blank? && params[:fabric_ids].blank?
+		@products = Product.where(brand_id: params[:brand_ids])		
 	end
 end

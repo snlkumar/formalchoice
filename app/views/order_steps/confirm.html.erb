@@ -1,20 +1,22 @@
- <div class="stepwizard">
-	<div class="stepwizard-row setup-panel">
-		<div class="stepwizard-step">
-			<a href="#step-1" type="button" class="btn btn-default btn-circle"  disabled="disabled">1</a>
-			<p>Custom Design</p>
-		</div>
-		<div class="stepwizard-step">
-			<a href="#step-2" type="button" class="btn btn-default btn-circle" disabled="disabled">2</a>
-			<p>Measurement</p>
-		</div>
-		<div class="stepwizard-step">
-			<a href="#step-3" type="button" class="btn-u btn-circle">3</a>
-			<p>Preview</p>
+
+<%= form_for @order_item, url: wizard_path do |f| %>
+	<div class="stepwizard">
+		<div class="stepwizard-row setup-panel">
+			<div class="stepwizard-step">
+				<a href="#step-1" type="button" class="btn btn-default btn-circle"  disabled="disabled">1</a>
+				<p>Custom Design</p>
+			</div>
+			<div class="stepwizard-step">
+				<a href="#step-2" type="button" class="btn btn-default btn-circle" disabled="disabled">2</a>
+				<p>Measurement</p>
+			</div>
+			<div class="stepwizard-step">
+				<a href="#step-3" type="button" class="btn-u btn-circle">3</a>
+				<p>Preview</p>
+			</div>
 		</div>
 	</div>
-</div>
-<%= form_for @order_item, url: wizard_path, html: {class: "sky-form" } do |f| %>	
+	<div  class="sky-form">
 	<header>Desgin</header>
 	<fieldset>
 		<%= render "#{f.object.product.category.name}_preview", f: f %>
@@ -30,6 +32,7 @@
 	</fieldset>
 	<p><button class="btn-u nextBtn pull-right" type="submit" >Checkout</button></p>
 	<p><%= link_to "Back", previous_wizard_path, class: "btn-u nextBtn pull-left" %></p>
+	</div>
 <% end %>
 <style type="text/css">
 

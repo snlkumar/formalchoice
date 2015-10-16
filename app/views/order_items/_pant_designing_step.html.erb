@@ -23,25 +23,25 @@
 					<div class="row">
 						<%=f.hidden_field :order_id%>
 						<%=f.hidden_field :product_id%>
-						<%Fit.all.each do |fi|%>
+						<%Fit.all.each_with_index do |fi, i|%>
 							<div class="col-xs-3">		        				
 		        				<%=image_tag(fi.avatar_url(:design_thumb), class: "img-radio")%>
 		        				<label class="radio">
-		        					<%= f.radio_button :fit_id, fi.id%>
+		        					<%= f.radio_button :fit_id, fi.id, checked: i==0%>
 		        					<i class="rounded-x"></i><%=fi.name%>
 		        				</label>
-	        				</div>	
+	        				</div>	        					
         				<% end %>					
 					</div>                      
 				</section> 
 				<section>
 					<label class="label">Pleats</label>
 					<div class="row">
-						<%Pleat.all.each do |p|%>
+						<%Pleat.all.each_with_index do |p, i|%>
 							<div class="col-xs-3">		        				
 		        				<%=image_tag(p.avatar_url(:design_thumb), class: "img-radio")%>
 		        				<label class="radio">
-		        					<%= f.radio_button :pleat_id, p.id%>
+		        					<%= f.radio_button :pleat_id, p.id, checked: i==0%>
 		        					<i class="rounded-x"></i><%=p.name%>
 		        				</label>
 	        				</div>	
@@ -51,11 +51,11 @@
 				<section>
 					<label class="label">Pant Fastening</label>
 					<div class="row">
-						<%PantFastening.all.each do |pf|%>
+						<%PantFastening.all.each_with_index do |pf, i|%>
 							<div class="col-xs-3">		        				
 		        				<%=image_tag(pf.avatar_url(:design_thumb), class: "img-radio")%>
 		        				<label class="radio">
-		        					<%= f.radio_button :pant_fastening_id, pf.id%>
+		        					<%= f.radio_button :pant_fastening_id, pf.id, checked: i==0%>
 		        					<i class="rounded-x"></i><%=pf.name%>
 		        				</label>
 	        				</div>	
@@ -65,11 +65,11 @@
 				<section>
 					<label class="label">Side Pocket</label>
 					<div class="row">
-						<%SidePocket.all.each do |sp|%>
+						<%SidePocket.all.each_with_index do |sp, i|%>
 							<div class="col-xs-3">		        				
 		        				<%=image_tag(sp.avatar_url(:design_thumb), class: "img-radio")%>
 		        				<label class="radio">
-		        					<%= f.radio_button :side_pocket_id, sp.id%>
+		        					<%= f.radio_button :side_pocket_id, sp.id, checked: i==0%>
 		        					<i class="rounded-x"></i><%=sp.name%>
 		        				</label>
 	        				</div>	
@@ -79,11 +79,11 @@
 				<section>
 					<label class="label">Back Pocket</label>
 					<div class="row">
-						<%BackPocket.all.each do |bp|%>
+						<%BackPocket.all.each_with_index do |bp, i|%>
 							<div class="col-xs-3">		        				
 		        				<%=image_tag(bp.avatar_url(:design_thumb), class: "img-radio")%>
 		        				<label class="radio">
-		        					<%= f.radio_button :back_pocket_id, bp.id%>
+		        					<%= f.radio_button :back_pocket_id, bp.id, checked: i==0%>
 		        					<i class="rounded-x"></i><%=bp.name%>
 		        				</label>
 	        				</div>	
@@ -93,18 +93,17 @@
 				<section>
 					<label class="label">Pant Cuff</label>
 					<div class="row">
-						<%PantCuff.all.each do |p|%>
+						<%PantCuff.all.each_with_index do |p, i|%>
 							<div class="col-xs-3">		        				
 		        				<%=image_tag(p.avatar_url(:design_thumb), class: "img-radio")%>
 		        				<label class="radio">
-		        					<%= f.radio_button :pant_cuff_id, p.id%>
+		        					<%= f.radio_button :pant_cuff_id, p.id, checked: i==0%>
 		        					<i class="rounded-x"></i><%=p.name%>
 		        				</label>
 	        				</div>	
         				<% end %>					
 					</div>                      
-				</section>                 
-				
+				</section>
 			</fieldset>
 		</div>
 		

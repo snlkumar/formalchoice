@@ -3,7 +3,7 @@
 	    <div class="da-slide">
 	        <h2><i>CLEAN &amp; FRESH</i> <br /> <i>FULLY RESPONSIVE</i> <br /> <i>DESIGN</i></h2>
 	        <p><i>Lorem ipsum dolor amet</i> <br /> <i>tempor incididunt ut</i> <br /> <i>veniam omnis </i></p>
-	        <div class="da-img"><img class="img-responsive" src="../assets/frontend/slider/1.png" alt="sdsds"></div>
+	        <div class="da-img"><img class="img-responsive" src="../assets/frontend/slider/home1.jpg" alt="sdsds"></div>
 	    </div>
 	    <div class="da-slide">
 	        <h2><i>RESPONSIVE VIDEO</i> <br /> <i>SUPPORT AND</i> <br /> <i>MANY MORE</i></h2>
@@ -15,7 +15,7 @@
 	    <div class="da-slide">
 	        <h2><i>USING BEST WEB</i> <br /> <i>SOLUTIONS WITH</i> <br /> <i>HTML5/CSS3</i></h2>
 	        <p><i>Lorem ipsum dolor amet</i> <br /> <i>tempor incididunt ut</i> <br /> <i>veniam omnis </i></p>
-	        <div class="da-img"><img src="../assets/frontend/slider/html5andcss3.png" alt="image01" /></div>
+	        <div class="da-img"><img src="../assets/frontend/slider/home2.jpg" alt="image01" /></div>
 	    </div>
 	    <div class="da-arrows">
 	        <span class="da-arrows-prev"></span>
@@ -25,17 +25,18 @@
 </div>
 <div class="breadcrumbs">
   <div class="container">
-    <h1 class="pull-left">General Typography</h1>
+    <h1 class="pull-left">FormalChoice</h1>
     <ul class="pull-right breadcrumb">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="">Features</a></li>
-      <li class="active">Typography</li>
+      <li class="active"><a href="index.html">Home</a></li>
+     <li><a href="">Features</a></li>
+      <li class="active">Typography</li> 
     </ul>
   </div>
 </div>
 <div class="container ">
     <div class="row">
             <!-- Begin Sidebar Menu -->
+
         <div class="col-md-3">
             <%= render 'layouts/partials/sidebar'%>
         </div>
@@ -47,25 +48,91 @@
                 <%Product.all.each do |p|%> 
                   <div class="col-md-3">
                     <div class="team-v2 bg-light">
-                      <img class="img-responsive" src="http://knitfab.com/wp-content/uploads/2015/02/Oxford.jpg" alt="" />
-                      <div class="inner-team">
-                        <h3>Jack Anderson</h3>
+                      <img class="img-responsive" src="http://knitfab.com/wp-content/uploads/2015/02/Oxford.jpg" height: "50px;" width: '50px;' alt="" />
+                      <!-- <div class="inner-team"> -->
+                        <h4>Jack Anderson</h4>
                         <small class="color-green">CEO, Chief Officer</small>
-                      </div>
+                      <!-- </div> -->
                     </div>
                   </div>               
-                    <div class="col-md-3">
-                        <div class="bg-light team-v2"><!-- You can delete "bg-light" class. It is just to make background color -->      
-                            <%=image_tag(p.images.first.avatar_url(:thumb), class: "img-responsive") unless p.images.blank?%>  
-                            <h4><%=p.name%></h4>
-                            <small>CEO, Chief Officer</small>
-                        </div>
+                  <div class="col-md-3">
+                      <div class="bg-light team-v2"><!-- You can delete "bg-light" class. It is just to make background color -->      
+                          <%=image_tag(p.images.first.avatar_url(:thumb), class: "img-responsive") unless p.images.blank?%>  
+                          <h4><%=p.name%></h4>
+                          <small class="color-green">$<%=p.back_price%>/View</small>
+                      </div>
+                  </div>
+                  <div class="col-md-3">
+                    <div class="team-v2 bg-light">
+                      <img class="img-responsive" src="http://knitfab.com/wp-content/uploads/2015/02/Oxford.jpg" height: "50px;" width: '50px;' alt="" />
+                      <!-- <div class="inner-team"> -->
+                        <h4>Jack Anderson</h4>
+                        <small class="color-green">CEO, Chief Officer</small>
+                      <!-- </div> -->
                     </div>
+                  </div>               
+                  <div class="col-md-3">
+                      <div class="bg-light team-v2"><!-- You can delete "bg-light" class. It is just to make background color -->      
+                          <%=image_tag(p.images.first.avatar_url(:thumb), class: "img-responsive") unless p.images.blank?%>  
+                          <h4><%=p.name%></h4>
+                          <small class="color-green">$<%=p.back_price%>/View</small>
+                      </div>
+                  </div>
+                  <div class="col-md-3">
+                    <div class="team-v2 bg-light">
+                      <img class="img-responsive" src="http://knitfab.com/wp-content/uploads/2015/02/Oxford.jpg" height: "50px;" width: '50px;' alt="" />
+                      <!-- <div class="inner-team"> -->
+                        <h4>Jack Anderson</h4>
+                        <small class="color-green">CEO, Chief Officer</small>
+                      <!-- </div> -->
+                    </div>
+                  </div>               
+                  <div class="col-md-3">
+                      <div class="bg-light team-v2"><!-- You can delete "bg-light" class. It is just to make background color -->      
+                          <%=image_tag(p.images.first.avatar_url(:thumb), class: "img-responsive") unless p.images.blank?%>  
+                          <h4><%=p.name%></h4>
+                          <small class="color-green">$<%=p.back_price%>/View</small>
+                      </div>
+                  </div>
+                  <div class="col-md-3">
+                    <div class="team-v2 bg-light">
+                      <img class="img-responsive" src="http://knitfab.com/wp-content/uploads/2015/02/Oxford.jpg" height: "50px;" width: '50px;' alt="" />
+                      <!-- <div class="inner-team"> -->
+                        <h4>Jack Anderson</h4>
+                        <small class="color-green">CEO, Chief Officer</small>
+                      <!-- </div> -->
+                    </div>
+                  </div>               
+                  <div class="col-md-3">
+                      <div class="bg-light team-v2"><!-- You can delete "bg-light" class. It is just to make background color -->      
+                          <%=image_tag(p.images.first.avatar_url(:thumb), class: "img-responsive") unless p.images.blank?%>  
+                          <h4><%=p.name%></h4>
+                          <small class="color-green">$<%=p.back_price%>/View</small>
+                      </div>
+                  </div>
+                  <div class="col-md-3">
+                    <div class="team-v2 bg-light">
+                      <img class="img-responsive" src="http://knitfab.com/wp-content/uploads/2015/02/Oxford.jpg" height: "50px;" width: '50px;' alt="" />
+                      <!-- <div class="inner-team"> -->
+                        <h4>Jack Anderson</h4>
+                        <small class="color-green">CEO, Chief Officer</small>
+                      <!-- </div> -->
+                    </div>
+                  </div>               
+                  <div class="col-md-3">
+                      <div class="bg-light team-v2"><!-- You can delete "bg-light" class. It is just to make background color -->      
+                          <%=image_tag(p.images.first.avatar_url(:thumb), class: "img-responsive") unless p.images.blank?%>  
+                          <h4><%=p.name%></h4>
+                          <small class="color-green">$<%=p.back_price%>/View</small>
+                      </div>
+                  </div>
                 <% end %>
             </div>
-           <!--/row-->                          
+           <!--/row-->  
+
         </div>
             <!-- End Content -->
-    </div>          
+    </div>        
+     
 </div><!--/container-->     
     

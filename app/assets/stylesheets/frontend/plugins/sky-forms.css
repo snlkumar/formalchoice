@@ -1017,6 +1017,8 @@
 	border-radius: 0;
 	font-size: 100%;
 	text-align: left;
+	font-weight: bold;
+	font-size: 14px;
 	white-space: normal;
 	color: inherit;
 }
@@ -1028,3 +1030,14 @@
 .sky-form .checkbox + .checkbox {
   margin-top: 0;
 }
+
+#call_to_tailor fieldset {
+  border: medium none !important;
+}
+
+.input > input {
+  box-shadow: none !important;
+  margin: 0 !important;
+}
+
+.eml{margin-top: -10px!important;}

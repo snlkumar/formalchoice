@@ -1,6 +1,6 @@
 class OrderItemsController < ApplicationController
 	include OrderItemsHelper
-	before_filter :login_required
+	# before_filter :login_required
 	def new
 		# session[:order] = nil
 		# debugger

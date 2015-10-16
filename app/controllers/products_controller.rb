@@ -26,6 +26,7 @@ class ProductsController < ApplicationController
 	end
 
 	def details
+		@product = Product.find params[:id]
 	end
 
 	def design

@@ -6,7 +6,7 @@ class CreateBrands < ActiveRecord::Migration
       t.string :founder
       t.string :address
       t.string :contact
-      t.string :dealin
+      t.references :category
       t.string :description
       t.boolean :isactive, default: true
       t.timestamps null: false
